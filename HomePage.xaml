@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="alquileres_formsa.HomePage"
+    NavigationPage.HasNavigationBar="False"
+    BackgroundColor="#F4F6FC">
+
+    <Grid RowDefinitions="Auto,*,Auto">
+
+        <!-- ================= ENCABEZADO ================= -->
+        <Grid
+            Grid.Row="0"
+            Padding="22,35,22,20"
+            BackgroundColor="#173B8F">
+
+            <Grid RowDefinitions="Auto,Auto">
+
+                <Grid ColumnDefinitions="*,Auto">
+
+                    <VerticalStackLayout>
+                        <Label
+                            Text="Hola 👋"
+                            FontSize="16"
+                            TextColor="#DCE5FF"/>
+
+                        <Label
+                            Text="Encontrá tu próximo hogar"
+                            FontSize="24"
+                            FontAttributes="Bold"
+                            TextColor="White"/>
+                    </VerticalStackLayout>
+
+                    <Border
+                        Grid.Column="1"
+                        WidthRequest="45"
+                        HeightRequest="45"
+                        StrokeThickness="0"
+                        BackgroundColor="#FFFFFF"
+                        StrokeShape="RoundRectangle 22">
+
+                        <Label
+                            Text="🔔"
+                            FontSize="20"
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                </Grid>
+                <!-- BUSCADOR -->
+                <Border
+    Grid.Row="1"
+    Margin="0,20,0,0"
+    BackgroundColor="White"
+    StrokeThickness="0"
+    StrokeShape="RoundRectangle 16"
+    HeightRequest="52">
+
+                    <Grid ColumnDefinitions="Auto,*">
+
+                        <Label
+            Text="🔍"
+            FontSize="20"
+            Margin="15,0,8,0"
+            VerticalOptions="Center">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnBuscarClicked"/>
+                            </Label.GestureRecognizers>
+                        </Label>
+
+                        <Entry
+            x:Name="txtBuscar"
+            Grid.Column="1"
+            Placeholder="¿Dónde querés vivir?"
+            PlaceholderColor="#8B93A7"
+            TextColor="#222222"
+            FontSize="14"
+            ReturnType="Search"
+            Completed="OnBuscarClicked"
+            VerticalOptions="Center"/>
+
+                    </Grid>
+
+                </Border>
+
+            </Grid>
+        </Grid>
+
+
+        <!-- ================= CONTENIDO ================= -->
+        <ScrollView Grid.Row="1">
+
+            <VerticalStackLayout Padding="20,22,20,20" Spacing="22">
+
+                <!-- CATEGORÍAS -->
+                <VerticalStackLayout Spacing="12">
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <Label
+                            Text="Categorías"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="#1C2541"/>
+
+                        <Label
+                            Grid.Column="1"
+                            Text="Ver todas"
+                            FontSize="13"
+                            TextColor="#4866C9"
+                            VerticalOptions="Center"/>
+
+                    </Grid>
+
+                    <HorizontalStackLayout Spacing="12">
+
+                        <Border
+                            WidthRequest="100"
+                            HeightRequest="85"
+                            BackgroundColor="#E8EEFF"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 18">
+
+                            <VerticalStackLayout
+                                Spacing="5"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    Text="🏠"
+                                    FontSize="25"
+                                    HorizontalOptions="Center"/>
+
+                                <Label
+                                    Text="Casas"
+                                    FontSize="13"
+                                    FontAttributes="Bold"
+                                    TextColor="#263A78"/>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+
+                        <Border
+                            WidthRequest="100"
+                            HeightRequest="85"
+                            BackgroundColor="#F0EAFE"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 18">
+
+                            <VerticalStackLayout
+                                Spacing="5"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    Text="🏢"
+                                    FontSize="25"
+                                    HorizontalOptions="Center"/>
+
+                                <Label
+                                    Text="Deptos."
+                                    FontSize="13"
+                                    FontAttributes="Bold"
+                                    TextColor="#493A7A"/>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+
+                        <Border
+                            WidthRequest="100"
+                            HeightRequest="85"
+                            BackgroundColor="#FFF1E8"
+                            StrokeThickness="0"
+                            StrokeShape="RoundRectangle 18">
+
+                            <VerticalStackLayout
+                                Spacing="5"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Center">
+
+                                <Label
+                                    Text="🏡"
+                                    FontSize="25"
+                                    HorizontalOptions="Center"/>
+
+                                <Label
+                                    Text="Quintas"
+                                    FontSize="13"
+                                    FontAttributes="Bold"
+                                    TextColor="#805338"/>
+
+                            </VerticalStackLayout>
+
+                        </Border>
+
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+
+                <!-- PROPIEDADES DESTACADAS -->
+                <VerticalStackLayout Spacing="14">
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <Label
+                            Text="Propiedades destacadas"
+                            FontSize="20"
+                            FontAttributes="Bold"
+                            TextColor="#1C2541"/>
+
+                        <Label
+                            Grid.Column="1"
+                            Text="Ver todas"
+                            FontSize="13"
+                            TextColor="#4866C9"
+                            VerticalOptions="Center"/>
+
+                    </Grid>
+
+
+                    <!-- PROPIEDAD 1 -->
+                    <Border
+                        BackgroundColor="White"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20">
+
+                        <VerticalStackLayout>
+
+                            <!-- Imagen -->
+                            <Grid HeightRequest="180">
+
+                                <Image
+                                    Source="fondoo.jpg"
+                                    Aspect="AspectFill"/>
+
+                                <Border
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Start"
+                                    Margin="12"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    BackgroundColor="White"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 20">
+
+                                    <Label
+                                        Text="♡"
+                                        FontSize="25"
+                                        TextColor="#4561C5"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+
+                                </Border>
+
+                                <Border
+                                    HorizontalOptions="Start"
+                                    VerticalOptions="End"
+                                    Margin="12"
+                                    Padding="10,5"
+                                    BackgroundColor="#173B8F"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 10">
+
+                                    <Label
+                                        Text="DESTACADA"
+                                        FontSize="10"
+                                        FontAttributes="Bold"
+                                        TextColor="White"/>
+
+                                </Border>
+
+                            </Grid>
+
+
+                            <!-- Información -->
+                            <VerticalStackLayout Padding="15" Spacing="7">
+
+                                <Label
+                                    Text="Casa familiar"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="#1C2541"/>
+
+                                <Label
+                                    Text="📍 Formosa Capital"
+                                    FontSize="13"
+                                    TextColor="#737B91"/>
+
+                                <Grid ColumnDefinitions="*,Auto">
+
+                                    <VerticalStackLayout>
+
+                                        <Label
+                                            Text="$250.000"
+                                            FontSize="19"
+                                            FontAttributes="Bold"
+                                            TextColor="#173B8F"/>
+
+                                        <Label
+                                            Text="por mes"
+                                            FontSize="11"
+                                            TextColor="#858B9B"/>
+
+                                    </VerticalStackLayout>
+
+                                    <Button
+                                        Grid.Column="1"
+                                        Text="Ver más"
+                                        BackgroundColor="#173B8F"
+                                        TextColor="White"
+                                        CornerRadius="12"
+                                        FontAttributes="Bold"
+                                        Padding="18,0"
+                                        HeightRequest="42"/>
+
+                                </Grid>
+
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+
+                    <!-- PROPIEDAD 2 -->
+                    <Border
+                        BackgroundColor="White"
+                        StrokeThickness="0"
+                        StrokeShape="RoundRectangle 20">
+
+                        <VerticalStackLayout>
+
+                            <Grid HeightRequest="180">
+
+                                <Image
+                                    Source="foto_depa.jpg"
+                                    Aspect="AspectFill"/>
+
+                                <Border
+                                    HorizontalOptions="End"
+                                    VerticalOptions="Start"
+                                    Margin="12"
+                                    WidthRequest="40"
+                                    HeightRequest="40"
+                                    BackgroundColor="White"
+                                    StrokeThickness="0"
+                                    StrokeShape="RoundRectangle 20">
+
+                                    <Label
+                                        Text="♡"
+                                        FontSize="25"
+                                        TextColor="#4561C5"
+                                        HorizontalOptions="Center"
+                                        VerticalOptions="Center"/>
+
+                                </Border>
+
+                            </Grid>
+
+                            <VerticalStackLayout Padding="15" Spacing="7">
+
+                                <Label
+                                    Text="Departamento moderno"
+                                    FontSize="18"
+                                    FontAttributes="Bold"
+                                    TextColor="#1C2541"/>
+
+                                <Label
+                                    Text="📍 Formosa Capital"
+                                    FontSize="13"
+                                    TextColor="#737B91"/>
+
+                                <Grid ColumnDefinitions="*,Auto">
+
+                                    <Label
+                                        Text="$180.000 / mes"
+                                        FontSize="17"
+                                        FontAttributes="Bold"
+                                        TextColor="#173B8F"
+                                        VerticalOptions="Center"/>
+
+                                    <Button
+                                        Grid.Column="1"
+                                        Text="Ver más"
+                                        BackgroundColor="#173B8F"
+                                        TextColor="White"
+                                        CornerRadius="12"
+                                        FontAttributes="Bold"
+                                        Padding="18,0"
+                                        HeightRequest="42"/>
+
+                                </Grid>
+
+                            </VerticalStackLayout>
+
+                        </VerticalStackLayout>
+
+                    </Border>
+
+                </VerticalStackLayout>
+
+
+                <!-- PUBLICAR -->
+                <Border
+                    BackgroundColor="#173B8F"
+                    StrokeThickness="0"
+                    StrokeShape="RoundRectangle 20"
+                    Padding="18">
+                    
+                    
+
+                    <Grid ColumnDefinitions="*,Auto">
+
+                        <VerticalStackLayout Spacing="4">
+
+                            <Label
+                                Text="¿Tenés una propiedad?"
+                                FontSize="16"
+                                FontAttributes="Bold"
+                                TextColor="White"/>
+
+                            <Label
+                                Text="Publicala y encontrá inquilinos"
+                                FontSize="12"
+                                TextColor="#DCE5FF"/>
+
+                        </VerticalStackLayout>
+                        <Button
+    Grid.Column="1"
+    Text="+ Publicar"
+    BackgroundColor="White"
+    TextColor="#173B8F"
+    CornerRadius="12"
+    FontAttributes="Bold"
+    Clicked="OnPublicarClicked"/>
+
+                    </Grid>
+
+                </Border>
+
+            </VerticalStackLayout>
+
+        </ScrollView>
+
+
+        <!-- ================= BARRA INFERIOR ================= -->
+        <Grid
+            Grid.Row="2"
+            HeightRequest="72"
+            BackgroundColor="White"
+            ColumnDefinitions="*,*,*,*">
+
+            <!-- INICIO -->
+            <!-- INICIO -->
+            <VerticalStackLayout
+    Grid.Column="0"
+    HorizontalOptions="Center"
+    VerticalOptions="Center">
+
+                <Label
+        Text="⌂"
+        FontSize="25"
+        TextColor="#173B8F"
+        HorizontalOptions="Center"/>
+
+                <Label
+        Text="Inicio"
+        FontSize="11"
+        TextColor="#173B8F"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnDashboardClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+
+            <!-- PROPIEDADES -->
+            <VerticalStackLayout
+                Grid.Column="1"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+                <Label
+                    Text="🔎"
+                    FontSize="20"
+                    HorizontalOptions="Center"/>
+
+                <Label
+                    Text="Buscar"
+                    FontSize="11"
+                    TextColor="#737B91"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnPropiedadesClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+
+            <!-- CONTRATOS -->
+            <VerticalStackLayout
+                Grid.Column="2"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+                <Label
+                    Text="📄"
+                    FontSize="20"
+                    HorizontalOptions="Center"/>
+
+                <Label
+                    Text="Contratos"
+                    FontSize="11"
+                    TextColor="#737B91"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnContratosClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+
+            <!-- CLIENTES -->
+            <VerticalStackLayout
+                Grid.Column="3"
+                HorizontalOptions="Center"
+                VerticalOptions="Center">
+
+                <Label
+                    Text="👤"
+                    FontSize="20"
+                    HorizontalOptions="Center"/>
+
+                <Label
+                    Text="Perfil"
+                    FontSize="11"
+                    TextColor="#737B91"/>
+
+                <VerticalStackLayout.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnClientesClicked"/>
+                </VerticalStackLayout.GestureRecognizers>
+
+            </VerticalStackLayout>
+
+        </Grid>
+
+    </Grid>
+    
+    <!-- BUSCADOR -->
+   
+
+</ContentPage>

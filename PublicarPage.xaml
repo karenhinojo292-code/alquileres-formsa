@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="alquileres_formsa.PublicarPage"
+    Title="Publicar propiedad"
+    BackgroundColor="#F4F6FC">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <Label Text="Título" FontAttributes="Bold" TextColor="#1C2541"/>
+            <Entry x:Name="entryTitulo" Placeholder="Ej: Casa familiar"/>
+
+            <Label Text="Ubicación" FontAttributes="Bold" TextColor="#1C2541"/>
+            <Entry x:Name="entryUbicacion" Placeholder="Ej: Formosa Capital"/>
+
+            <Label Text="Precio" FontAttributes="Bold" TextColor="#1C2541"/>
+            <Entry x:Name="entryPrecio" Placeholder="Ej: $200.000" Keyboard="Numeric"/>
+            <Label Text="Foto" FontAttributes="Bold" TextColor="#1C2541"/>
+
+            <Image x:Name="imgPreview" HeightRequest="180" Aspect="AspectFill" BackgroundColor="#E8EEFF"/>
+
+            <Button
+    Text="📷 Elegir foto"
+    BackgroundColor="#E8EEFF"
+    TextColor="#173B8F"
+    CornerRadius="12"
+    Clicked="OnElegirFotoClicked"/>
+
+            <HorizontalStackLayout Spacing="10">
+                <Switch x:Name="switchDestacada"/>
+                <Label Text="Marcar como destacada" VerticalOptions="Center"/>
+            </HorizontalStackLayout>
+
+            <Button
+                Text="Guardar propiedad"
+                BackgroundColor="#173B8F"
+                TextColor="White"
+                CornerRadius="12"
+                FontAttributes="Bold"
+                HeightRequest="50"
+                Margin="0,10,0,0"
+                Clicked="OnGuardarClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
